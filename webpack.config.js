@@ -34,8 +34,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'public',
-          to: '.',
+          from: 'public/gen-ai',
+          to: 'gen-ai',
           globOptions: {
             ignore: ['**/.DS_Store'],
           },
@@ -51,10 +51,6 @@ module.exports = {
     },
     compress: true, // Enable gzip compression
     port: 3001, // Use port 3001
-    historyApiFallback: {
-      rewrites: [
-        { from: /^\/gen-ai\/.*$/, to: context => context.parsedUrl.pathname }
-      ]
-    },
+    historyApiFallback: true,
   },
 }

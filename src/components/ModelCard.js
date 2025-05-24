@@ -4,7 +4,13 @@ import './ModelCard.css';
 function ModelCard({ model }) {
   const handleClick = () => {
     if (model.url) {
-      window.open(model.url, '_blank');
+      // For Gen AI models, use direct navigation
+      if (model.category === 'Gen AI') {
+        window.location.href = model.url;
+      } else {
+        // For external links, open in new tab
+        window.open(model.url, '_blank');
+      }
     }
   };
 
