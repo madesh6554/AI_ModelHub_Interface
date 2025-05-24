@@ -39,7 +39,13 @@ module.exports = {
           globOptions: {
             ignore: ['**/.DS_Store'],
           },
-          noErrorOnMissing: true
+          noErrorOnMissing: true,
+          transform(content, absoluteFilename) {
+            if (absoluteFilename.endsWith('.html')) {
+              return content;
+            }
+            return content;
+          }
         },
       ],
     }),
@@ -53,7 +59,7 @@ module.exports = {
     port: 3001, // Use port 3001
     historyApiFallback: {
       rewrites: [
-        { from: /^\/gen-ai\/.*$/, to: context => context.parsedUrl.pathname },
+        { from: /^\/gen-ai\/[^/]+$/, to: context => `${context.parsedUrl.pathname}.html` },
         { from: /.*/, to: '/index.html' }
       ]
     },
