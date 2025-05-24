@@ -39,6 +39,7 @@ module.exports = {
           globOptions: {
             ignore: ['**/.DS_Store'],
           },
+          noErrorOnMissing: true
         },
       ],
     }),
@@ -49,6 +50,10 @@ module.exports = {
     },
     compress: true, // Enable gzip compression
     port: 3001, // Use port 3001
-    historyApiFallback: true,
+    historyApiFallback: {
+      rewrites: [
+        { from: /^\/gen-ai\/.*$/, to: context => context.parsedUrl.pathname }
+      ]
+    },
   },
 }
