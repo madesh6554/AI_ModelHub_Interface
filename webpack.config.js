@@ -39,7 +39,13 @@ module.exports = {
           globOptions: {
             ignore: ['**/.DS_Store'],
           },
-          noErrorOnMissing: true
+          noErrorOnMissing: true,
+          transform(content, absoluteFilename) {
+            if (absoluteFilename.endsWith('.html')) {
+              return content;
+            }
+            return content;
+          }
         },
       ],
     }),
@@ -47,7 +53,8 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'), // Serve files from dist directory
-      publicPath: '/'
+      publicPath: '/',
+      serveIndex: true
     },
     compress: true, // Enable gzip compression
     port: 3001, // Use port 3001
