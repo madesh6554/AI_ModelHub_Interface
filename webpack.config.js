@@ -51,7 +51,8 @@ module.exports = {
     port: 3001, // Use port 3001
     historyApiFallback: {
       rewrites: [
-        { from: /^\/gen-ai\/.*$/, to: '/gen-ai/[name].html' }
+        { from: /^\/gen-ai\/StoryTeller$/, to: '/gen-ai/StoryTeller.html' },
+        { from: /^\/gen-ai\/DietPlanner$/, to: '/gen-ai/DietPlanner.html' }
       ]
     },
   },
