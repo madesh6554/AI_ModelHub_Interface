@@ -34,7 +34,7 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'Gen Ai',
+          from: 'public/gen-ai',
           to: 'gen-ai',
           globOptions: {
             ignore: ['**/.DS_Store'],
@@ -54,7 +54,13 @@ module.exports = {
     port: 3001, // Use port 3001
     historyApiFallback: {
       rewrites: [
-        { from: /^\/gen-ai\/[^/]+$/, to: context => `${context.parsedUrl.pathname}.html` },
+        { 
+          from: /^\/gen-ai\/[^/]+$/, 
+          to: context => {
+            const path = context.parsedUrl.pathname;
+            return `${path}.html`;
+          }
+        },
         { from: /.*/, to: '/index.html' }
       ]
     },
