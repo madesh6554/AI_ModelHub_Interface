@@ -9,14 +9,14 @@ const models = [
     name: 'StoryTeller',
     description: 'AI-powered story generator for kids with various themes',
     category: 'Gen AI',
-    url: '/gen-ai/StoryTeller.html'
+    url: process.env.NODE_ENV === 'production' ? '/dist/gen-ai/StoryTeller.html' : '/gen-ai/StoryTeller.html'
   },
   {
     id: 2,
     name: 'DietPlanner',
     description: 'Personalized AI diet planning assistant for various health goals',
     category: 'Gen AI',
-    url: '/gen-ai/DietPlanner.html'
+    url: process.env.NODE_ENV === 'production' ? '/dist/gen-ai/DietPlanner.html' : '/gen-ai/DietPlanner.html'
   },
   {
     id: 3,

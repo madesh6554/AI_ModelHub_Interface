@@ -7,7 +7,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: process.env.NODE_ENV === 'production' ? '/dist/' : '/'
   },
   module: {
     rules: [
@@ -35,7 +35,7 @@ module.exports = {
       patterns: [
         {
           from: 'public/gen-ai',
-          to: 'gen-ai',
+          to: 'dist/gen-ai',
           globOptions: {
             ignore: ['**/.DS_Store'],
           },
