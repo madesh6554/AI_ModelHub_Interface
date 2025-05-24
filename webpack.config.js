@@ -49,11 +49,6 @@ module.exports = {
     },
     compress: true, // Enable gzip compression
     port: 3001, // Use port 3001
-    historyApiFallback: {
-      rewrites: [
-        { from: /^\/gen-ai\/StoryTeller$/, to: '/gen-ai/StoryTeller.html' },
-        { from: /^\/gen-ai\/DietPlanner$/, to: '/gen-ai/DietPlanner.html' }
-      ]
-    },
+    historyApiFallback: true,
   },
 }
