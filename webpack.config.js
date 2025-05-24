@@ -47,6 +47,7 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'), // Serve files from dist directory
+      publicPath: '/'
     },
     compress: true, // Enable gzip compression
     port: 3001, // Use port 3001

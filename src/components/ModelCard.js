@@ -4,7 +4,7 @@ import './ModelCard.css';
 function ModelCard({ model }) {
   const handleClick = () => {
     if (model.url) {
-      window.location.href = model.url;
+      window.open(model.url, '_blank');
     }
   };
 
