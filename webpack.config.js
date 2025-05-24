@@ -58,7 +58,8 @@ module.exports = {
           from: /^\/gen-ai\/[^/]+$/, 
           to: context => {
             const path = context.parsedUrl.pathname;
-            return `${path}.html`;
+            // Check if the path already ends with .html
+            return path.endsWith('.html') ? path : `${path}.html`;
           }
         },
         { from: /.*/, to: '/index.html' }
