@@ -4,10 +4,10 @@ import './ModelCard.css';
 function ModelCard({ model }) {
   const handleClick = () => {
     if (model.url) {
-      // For Gen AI models, use direct navigation with .html extension
       if (model.category === 'Gen AI') {
-        const url = model.url.endsWith('.html') ? model.url : `${model.url}.html`;
-        window.location.href = url;
+        // For Gen AI models, use the direct path to the HTML file
+        const modelName = model.name.replace(/\s+/g, '');
+        window.location.href = `/gen-ai/${modelName}.html`;
       } else {
         window.location.href = model.url;
       }
