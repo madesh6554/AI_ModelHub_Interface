@@ -34,18 +34,12 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns: [
         {
-          from: 'public',
-          to: '.',
+          from: 'public/gen-ai',
+          to: 'gen-ai',
           globOptions: {
             ignore: ['**/.DS_Store'],
           },
-          noErrorOnMissing: true,
-          transform(content, absoluteFilename) {
-            if (absoluteFilename.endsWith('.html')) {
-              return content;
-            }
-            return content;
-          }
+          noErrorOnMissing: true
         },
       ],
     }),
